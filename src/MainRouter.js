@@ -1,15 +1,21 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Home from "./components/Home";
+import Navbar from "./components/Navbar/Navbar";
+import SignUp from "./components/SignUp/SignUp";
 
 class MainRouter extends Component {
   render() {
     return (
-      <div>
-        <header>
-          <nav class='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
-            <div class='container-fluid'></div>
-          </nav>
-        </header>
-      </div>
+      <Router>
+        <Navbar>
+          <Switch>
+            <Route exact path='/sign-up' component={SignUp} />
+            <Route exact path='/' component={Home}></Route>
+          </Switch>
+        </Navbar>
+      </Router>
     );
   }
 }
