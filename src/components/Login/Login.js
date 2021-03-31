@@ -12,7 +12,7 @@ class Login extends Component {
 
   componentDidMount() {
     if (checkIfLoggedIn()) {
-      this.props.history.push("/movie-home");
+      this.props.history.push("/auth-home");
     } else {
       this.props.history.push("/login");
     }
@@ -39,10 +39,11 @@ class Login extends Component {
 
       const decodedToken = jwtDecode(result.data.jwtToken);
 
-      this.props.handleLogin(decodedToken);
+      this.props.handleUserLogin(decodedToken);
 
       this.props.history.push("/auth-home");
     } catch (e) {
+      console.log(e);
       toast.error(e.response.data, {
         position: "top-center",
         autoClose: 5000,
@@ -59,7 +60,7 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
+      <div style={{ marginTop: "400px" }}>
         <main className='form-signin'>
           <form onSubmit={this.handleSubmit}>
             <h1 className='h3 mb-3 fw-normal'>Please Login</h1>
@@ -83,7 +84,7 @@ class Login extends Component {
               Password
             </label>
             <input
-              type='password'
+              type='text'
               id='inputPassword'
               className='form-control'
               placeholder='Password'

@@ -24,7 +24,7 @@ class SignUp extends Component {
 
   componentDidMount() {
     if (checkIfLoggedIn()) {
-      this.props.history.push("/cats-home");
+      this.props.history.push("/auth-home");
     } else {
       this.props.history.push("/sign-up");
     }
