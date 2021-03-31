@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 
@@ -18,15 +19,23 @@ class Navbar extends Component {
                     <use xlinkHref='#bootstrap' />
                   </svg>
                 </a>
+                <>
+                  <NavLink
+                    className='btn btn-outline-primary'
+                    activeStyle={{ color: "yellow" }}
+                    to='/sign-up'
+                  >
+                    Sign up
+                  </NavLink>
 
-                <div className='text-end'>
-                  <button type='button' className='btn btn-outline-light me-2'>
+                  <NavLink
+                    className='btn btn-outline-primary'
+                    activeStyle={{ color: "yellow" }}
+                    to='/login'
+                  >
                     Login
-                  </button>
-                  <button type='button' className='btn btn-warning'>
-                    Sign-up
-                  </button>
-                </div>
+                  </NavLink>
+                </>
               </div>
             </div>
           </header>
