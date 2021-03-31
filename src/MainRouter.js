@@ -7,11 +7,14 @@ import Navbar from "./components/Navbar/Navbar";
 import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import AddFriend from "./components/AddFriend/AddFriend";
+
 const MainRouter = (props) => {
   return (
     <Router>
       <Navbar user={props.user} handleUserLogout={props.handleUserLogout} />
       <Switch>
+        <PrivateRoute exact path='/add-friend' component={AddFriend} />
         <PrivateRoute exact path='/auth-home' component={AuthHome} />
         <Route
           exact

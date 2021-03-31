@@ -27,22 +27,21 @@ function Navbar(props) {
               <ul className='navbar-nav me-auto mb-2 mb-md-0'>
                 <li className='nav-item'>
                   <a className='nav-link active' aria-current='page' href='#'>
-                    Home
+                    About Us
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#'>
-                    Link
+                  <a className='nav-link active' aria-current='page' href='#'>
+                    How To Use
                   </a>
                 </li>
                 <li className='nav-item'>
                   <a
-                    className='nav-link disabled'
-                    href='#'
-                    tabIndex={-1}
-                    aria-disabled='true'
+                    className='nav-link active'
+                    aria-current='page'
+                    href='/add-friend'
                   >
-                    Disabled
+                    Add A Friend
                   </a>
                 </li>
               </ul>

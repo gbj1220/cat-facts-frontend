@@ -6,11 +6,38 @@
   user-select: none;
 }
 
-.col-lg-6 {
-  margin-top: 800px;
+.col-lg-4 {
   margin-left: 200px;
   display: grid;
   text-align: center;
+}
+
+.bd-placeholder-img {
+  margin-top: 500px;
+  display: grid;
+  margin-left: 600px;
+  margin-bottom: 10px;
+}
+
+.img-fluid {
+  margin-top: 50px;
+}
+
+.row {
+  margin-top: -150px;
+  margin-left: -150px;
+  background-color: darkcyan;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  background-color: darkcyan;
+  justify-content: center;
+}
+
+h2 {
+  margin-top: 300px;
 }
 
 @media (min-width: 768px) {
