@@ -7,10 +7,17 @@ function Navbar(props) {
   return (
     <div>
       <header>
-        <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
+        <nav
+          className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'
+          id='navbar'
+        >
           <div className='container-fluid'>
-            <a className='navbar-brand' href='#'>
-              Carousel
+            <a
+              className='navbar-brand'
+              href='/auth-home'
+              style={{ fontFamily: "fantasy" }}
+            >
+              CAT FACTS
             </a>
             <button
               className='navbar-toggler'
@@ -26,12 +33,22 @@ function Navbar(props) {
             <div className='collapse navbar-collapse' id='navbarCollapse'>
               <ul className='navbar-nav me-auto mb-2 mb-md-0'>
                 <li className='nav-item'>
-                  <a className='nav-link active' aria-current='page' href='#'>
+                  <a
+                    className='nav-link active'
+                    aria-current='page'
+                    href='#'
+                    style={{ fontFamily: "monospace" }}
+                  >
                     About Us
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link active' aria-current='page' href='#'>
+                  <a
+                    className='nav-link active'
+                    aria-current='page'
+                    href='#'
+                    style={{ fontFamily: "monospace" }}
+                  >
                     How To Use
                   </a>
                 </li>
@@ -40,6 +57,7 @@ function Navbar(props) {
                     className='nav-link active'
                     aria-current='page'
                     href='/add-friend'
+                    style={{ fontFamily: "monospace" }}
                   >
                     Add A Friend
                   </a>

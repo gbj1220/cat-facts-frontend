@@ -1,0 +1,32 @@
+#FN-input {
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#LN-input {
+  width: 500px;
+  margin-bottom: 10px;
+}
+
+#EA-input {
+  width: 500px;
+}
+
+#title {
+  margin-top: 400px;
+  color: yellow;
+  background-color: tomato;
+  text-align: center;
+  border-style: double;
+  border-color: yellow;
+}
+
+.btn {
+  color: yellow;
+  background-color: tomato;
+  text-align: center;
+  border-style: double;
+  border-color: yellow;
+  font-weight: bold;
+}

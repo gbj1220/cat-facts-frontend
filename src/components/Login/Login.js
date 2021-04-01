@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { checkIfLoggedIn } from "../lib/HelperFunctions";
 
+import "./Login.css";
+
 class Login extends Component {
   state = {
     email: "",
