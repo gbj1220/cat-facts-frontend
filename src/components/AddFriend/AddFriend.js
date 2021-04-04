@@ -7,7 +7,7 @@ export class addFriend extends Component {
   state = {
     firstName: "",
     lastName: "",
-    email: "",
+    mobileNumber: "",
     friendsArray: "",
     isError: false,
     errObj: {},
@@ -34,7 +34,7 @@ export class addFriend extends Component {
   handleOnSubmit = async (event) => {
     event.preventDefault();
 
-    const { firstName, lastName, email } = this.state;
+    const { firstName, lastName, mobileNumber } = this.state;
 
     const jwtToken = localStorage.getItem("jwtToken");
 
@@ -44,7 +44,7 @@ export class addFriend extends Component {
         {
           firstName,
           lastName,
-          email,
+          mobileNumber,
         },
         {
           headers: {
@@ -57,7 +57,7 @@ export class addFriend extends Component {
       this.setState({
         firstName: "",
         lastName: "",
-        email: "",
+        mobileNumber: "",
         friendsArray: newFriendsArray,
       });
 
@@ -68,7 +68,7 @@ export class addFriend extends Component {
   };
 
   render() {
-    const { firstName, lastName, email, isError } = this.state;
+    const { firstName, lastName, mobileNumber, isError } = this.state;
     return (
       <>
         <div>
@@ -87,7 +87,7 @@ export class addFriend extends Component {
                   <input
                     type='text'
                     id='FN-input'
-                    className='form-control'
+                    className='input-form'
                     placeholder='First Name'
                     required
                     autoFocus
@@ -103,7 +103,7 @@ export class addFriend extends Component {
                     <input
                       type='text'
                       id='LN-input'
-                      className='form-control'
+                      className='input-form'
                       placeholder='Last Name'
                       required
                       autoFocus
@@ -117,18 +117,19 @@ export class addFriend extends Component {
                         htmlFor='floatingInput'
                         className='visually-hidden'
                       >
-                        Email address
+                        Mobile Number
                       </label>
                       <input
-                        type='email'
+                        type='string'
                         id='EA-input'
-                        className='form-control'
-                        placeholder='Email'
+                        className='input-form'
+                        placeholder='Mobile Number'
                         required
                         autoFocus
-                        name='email'
-                        value={email}
+                        name='mobileNumber'
+                        value={mobileNumber}
                         onChange={this.handleInput}
+                        pattern='[0-9]*'
                       />
                     </div>
                     <div>

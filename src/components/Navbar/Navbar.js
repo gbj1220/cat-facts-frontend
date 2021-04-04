@@ -5,92 +5,92 @@ import "./Navbar.css";
 
 function Navbar(props) {
   return (
-    <div>
-      <header>
-        <nav
-          className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'
-          id='navbar'
-        >
-          <div className='container-fluid'>
-            <a
-              className='navbar-brand'
-              href='/auth-home'
-              style={{ fontFamily: "fantasy" }}
-            >
-              CAT FACTS
-            </a>
-            <button
-              className='navbar-toggler'
-              type='button'
-              data-bs-toggle='collapse'
-              data-bs-target='#navbarCollapse'
-              aria-controls='navbarCollapse'
-              aria-expanded='false'
-              aria-label='Toggle navigation'
-            >
-              <span className='navbar-toggler-icon' />
-            </button>
-            <div className='collapse navbar-collapse' id='navbarCollapse'>
-              <ul className='navbar-nav me-auto mb-2 mb-md-0'>
-                <li className='nav-item'>
-                  <a
+    <header>
+      <nav
+        className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'
+        id='navbar'
+      >
+        <div className='container-fluid'>
+          <NavLink
+            className='navbar-brand'
+            to='/auth-home'
+            style={{ fontFamily: "cursive", fontWeight: "bold" }}
+          >
+            CAT FACTS
+          </NavLink>
+          <button
+            className='navbar-toggler'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#navbarCollapse'
+            aria-controls='navbarCollapse'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+          >
+            <span className='navbar-toggler-icon' />
+          </button>
+
+          {props.user ? (
+            <>
+              <div className='collapse navbar-collapse' id='navbarCollapse'>
+                <ul className='navbar-nav me-auto mb-2 mb-md-0'>
+                  <NavLink
                     className='nav-link active'
-                    aria-current='page'
-                    href='#'
-                    style={{ fontFamily: "monospace" }}
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
+                    to='auth-home'
                   >
                     About Us
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a
+                  </NavLink>
+
+                  <NavLink
                     className='nav-link active'
-                    aria-current='page'
-                    href='#'
-                    style={{ fontFamily: "monospace" }}
+                    to='auth-home'
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
                     How To Use
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a
+                  </NavLink>
+
+                  <NavLink
                     className='nav-link active'
-                    aria-current='page'
-                    href='/add-friend'
-                    style={{ fontFamily: "monospace" }}
+                    to='/Add-Friend'
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
                     Add A Friend
-                  </a>
-                </li>
-              </ul>
-              <form className='d-flex'>
-                <input
-                  className='form-control me-2'
-                  type='search'
-                  placeholder='Search'
-                  aria-label='Search'
-                />
+                  </NavLink>
+                </ul>
+
                 <Link
-                  className='btn btn-outline-light'
-                  to='/login'
+                  className='nav-link active'
+                  id='logout-button'
                   onClick={props.handleUserLogout}
-                  style={{
-                    backgroundColor: "salmon",
-                    color: "white",
-                    fontWeight: "bold",
-                    borderStyle: "solid",
-                    borderWidth: "2px",
-                    borderColor: "salmon",
-                  }}
+                  style={{ fontFamily: "cursive", fontWeight: "bold" }}
+                  to='login'
                 >
-                  LogOut
+                  Logout
                 </Link>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </header>
-    </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <NavLink
+                className='btn btn-outline-primary'
+                activeStyle={{ color: "yellow" }}
+                to='/sign-up'
+              >
+                Sign up
+              </NavLink>
+              <NavLink
+                className='btn btn-outline-primary'
+                activeStyle={{ color: "yellow" }}
+                to='/login'
+              >
+                Login
+              </NavLink>
+            </>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 }
 

@@ -12,6 +12,16 @@
   margin-right: -10px;
 }
 
+.header {
+  background-color: black;
+}
+
+#logout-button {
+  color: white;
+  font-size: 1.3em;
+  font-family: cursive;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

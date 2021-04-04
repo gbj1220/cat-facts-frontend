@@ -14,19 +14,29 @@
 }
 
 #title {
-  margin-top: 400px;
-  color: yellow;
-  background-color: tomato;
+  margin-top: 350px;
+  color: white;
   text-align: center;
   border-style: double;
-  border-color: yellow;
+  border-color: white;
+}
+
+body {
+  background-color: slategray;
 }
 
 .btn {
-  color: yellow;
-  background-color: tomato;
+  color: white;
   text-align: center;
   border-style: double;
-  border-color: yellow;
+  border-color: white;
   font-weight: bold;
+  margin-right: 70px;
+}
+
+.form-floating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
