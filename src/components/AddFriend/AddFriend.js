@@ -72,10 +72,15 @@ export class addFriend extends Component {
     return (
       <>
         <main>
-          <div className='position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center bg-light'>
+          <div className='position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center bg-dark'>
             <div className='col-md-5 p-lg-5 mx-auto my-5'>
-              <h1 className='display-4 fw-normal'>It All Starts Here!</h1>
-              <p className='lead fw-normal'>
+              <h1
+                className='display-4 fw-normal'
+                style={{ color: "slategray" }}
+              >
+                It All Starts Here!
+              </h1>
+              <p className='lead fw-normal' style={{ color: "slategray" }}>
                 Welcome to Cat Facts! The process is simple. Add the persons
                 first name, last name, and phone number that you would like to
                 annoy with cat facts. Once you have added your new "target", you
@@ -95,7 +100,9 @@ export class addFriend extends Component {
             <form onSubmit={this.handleOnSubmit}>
               <div>
                 <span style={{ width: "20px" }}>
-                  <h1 id='title'>Add A Friend! </h1>
+                  <h1 id='title' style={{ color: "black" }}>
+                    Add A Friend!{" "}
+                  </h1>
                 </span>
 
                 <div className='form-floating mb-3'>
@@ -152,8 +159,11 @@ export class addFriend extends Component {
                     </div>
                     <button
                       type='submit'
-                      className='btn btn-outline-light'
-                      style={{ marginLeft: "75px", width: "350px" }}
+                      className='btn btn-dark'
+                      style={{
+                        marginLeft: "75px",
+                        width: "350px",
+                      }}
                       disabled={isError ? true : false}
                     >
                       Add Friend
