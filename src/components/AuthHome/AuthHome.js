@@ -92,7 +92,7 @@ class AuthHome extends Component {
                 <ul>{this.findAllFriends()}</ul>
               </div>
             </div>
-            <button className='btn btn-outline-primary'>
+            <button className='btn btn-outline-primary' id='send-fact-btn'>
               Send Daily Fact!
             </button>
           </div>

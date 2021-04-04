@@ -30,7 +30,7 @@
   align-items: center;
 }
 
-.btn {
+#send-fact-btn {
   margin-left: 1000px;
   margin-top: -300px;
   font-size: 3em;

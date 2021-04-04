@@ -71,6 +71,24 @@ export class addFriend extends Component {
     const { firstName, lastName, mobileNumber, isError } = this.state;
     return (
       <>
+        <main>
+          <div className='position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light'>
+            <div className='col-md-5 p-lg-5 mx-auto my-5'>
+              <h1 className='display-4 fw-normal'>It All Starts Here!</h1>
+              <p className='lead fw-normal'>
+                Welcome to Cat Facts! The process is simple. Add the persons
+                first name, last name, and phone number that you would like to
+                annoy with cat facts.
+              </p>
+              <a className='btn btn-outline-secondary' href='#'>
+                Coming soon
+              </a>
+            </div>
+            <div className='product-device shadow-sm d-none d-md-block' />
+            <div className='product-device product-device-2 shadow-sm d-none d-md-block' />
+          </div>
+        </main>
+
         <div>
           <main className='form-add-friend'>
             {isError && this.showErrorMessageObj()}
@@ -132,22 +150,21 @@ export class addFriend extends Component {
                         pattern='[0-9]*'
                       />
                     </div>
-                    <div>
-                      <button
-                        type='submit'
-                        className='btn btn-outline-light'
-                        style={{ marginLeft: "75px", width: "350px" }}
-                        disabled={isError ? true : false}
-                      >
-                        Add Friend
-                      </button>
-                    </div>
+                    <button
+                      type='submit'
+                      className='btn btn-outline-light'
+                      style={{ marginLeft: "75px", width: "350px" }}
+                      disabled={isError ? true : false}
+                    >
+                      Add Friend
+                    </button>
                   </div>
                 </div>
               </div>
             </form>
           </main>
         </div>
+        <div></div>
       </>
     );
   }
