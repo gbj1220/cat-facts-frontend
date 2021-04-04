@@ -72,17 +72,17 @@ export class addFriend extends Component {
     return (
       <>
         <main>
-          <div className='position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light'>
+          <div className='position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center bg-light'>
             <div className='col-md-5 p-lg-5 mx-auto my-5'>
               <h1 className='display-4 fw-normal'>It All Starts Here!</h1>
               <p className='lead fw-normal'>
                 Welcome to Cat Facts! The process is simple. Add the persons
                 first name, last name, and phone number that you would like to
-                annoy with cat facts.
+                annoy with cat facts. Once you have added your new "target", you
+                will be redirected to the home screen. From there you can hit
+                the big red button and send annoying texts to all of the friends
+                on your list.
               </p>
-              <a className='btn btn-outline-secondary' href='#'>
-                Coming soon
-              </a>
             </div>
             <div className='product-device shadow-sm d-none d-md-block' />
             <div className='product-device product-device-2 shadow-sm d-none d-md-block' />
@@ -94,7 +94,7 @@ export class addFriend extends Component {
             {isError && this.showErrorMessageObj()}
             <form onSubmit={this.handleOnSubmit}>
               <div>
-                <span>
+                <span style={{ width: "20px" }}>
                   <h1 id='title'>Add A Friend! </h1>
                 </span>
 

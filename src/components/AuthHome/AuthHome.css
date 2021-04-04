@@ -24,6 +24,10 @@
   background-color: #6ff5ff;
 }
 
+.input-form {
+  border-radius: 7%;
+}
+
 #friends-row {
   display: flex;
   justify-content: left;
