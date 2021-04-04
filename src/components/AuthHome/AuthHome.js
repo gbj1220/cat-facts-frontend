@@ -62,7 +62,20 @@ class AuthHome extends Component {
     const getAllNumbers = this.state.friendsArray.map(
       (item) => item.mobileNumber
     );
-    console.log(getAllNumbers);
+
+    this.setState({});
+  };
+
+  getCatFact = async (req, res) => {
+    try {
+      const catFact = await axios.get(
+        "https://cat-fact.herokuapp.com/facts/random"
+      );
+      const oneCatFact = catFact.data.text;
+      console.log(oneCatFact);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   render() {
@@ -98,7 +111,7 @@ class AuthHome extends Component {
           </div>
         )}
         <button
-          onClick={this.sendUserCatFact}
+          onClick={this.getCatFact}
           className='btn btn-outline-primary'
           id='send-fact-btn'
         >

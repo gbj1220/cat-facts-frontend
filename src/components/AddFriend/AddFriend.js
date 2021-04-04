@@ -147,7 +147,7 @@ export class addFriend extends Component {
                         Mobile Number
                       </label>
                       <input
-                        type='string'
+                        type='text'
                         id='EA-input'
                         className='input-form'
                         placeholder='Mobile Number'
