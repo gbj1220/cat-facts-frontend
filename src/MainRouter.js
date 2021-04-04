@@ -27,7 +27,7 @@ const MainRouter = (props) => {
           )}
         />
         <Route exact path='/sign-up' component={SignUp} />
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Login} />
       </Switch>
     </Router>
   );

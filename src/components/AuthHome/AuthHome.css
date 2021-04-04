@@ -28,31 +28,61 @@
   border-radius: 7%;
 }
 
-#friends-row {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-#send-fact-btn {
-  margin-left: 1000px;
-  margin-top: -300px;
-  font-size: 3em;
+.main-container {
+  margin-top: 200px;
+  background-color: slategray;
 }
 
 h2 {
-  margin-left: 110px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  color: black;
+  background-color: white;
+  font-family: Impact;
 }
 
 .list-group-item {
   display: flex;
   justify-content: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 
-#idk {
+.list-group-item {
+  border-radius: 10%;
+  margin: 10px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+#send-fact-btn {
+  border-style: solid;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  margin-left: 500px;
+  margin-top: -250px;
+  background-color: red;
+  font-family: Impact;
+  font-size: 2em;
+}
+
+#displayed-names {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#friends-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 @media (min-width: 768px) {

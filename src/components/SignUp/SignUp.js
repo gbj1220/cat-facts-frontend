@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "./SignUp.css";
 import { checkIfLoggedIn } from "../lib/HelperFunctions";
+import { NavLink, Link } from "react-router-dom";
 
 class SignUp extends Component {
   constructor(props) {

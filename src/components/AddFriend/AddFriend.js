@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-
 import "./AddFriend.css";
 
 export class addFriend extends Component {
@@ -80,7 +79,10 @@ export class addFriend extends Component {
               >
                 It All Starts Here!
               </h1>
-              <p className='lead fw-normal' style={{ color: "slategray" }}>
+              <p
+                className='lead fw-normal'
+                style={{ color: "slategray", marginTop: "100px" }}
+              >
                 Welcome to Cat Facts! The process is simple. Add the persons
                 first name, last name, and phone number that you would like to
                 annoy with cat facts. Once you have added your new "target", you
@@ -100,7 +102,7 @@ export class addFriend extends Component {
             <form onSubmit={this.handleOnSubmit}>
               <div>
                 <span style={{ width: "20px" }}>
-                  <h1 id='title' style={{ color: "black" }}>
+                  <h1 id='title' style={{ color: "black", marginTop: "200px" }}>
                     Add A Friend!{" "}
                   </h1>
                 </span>

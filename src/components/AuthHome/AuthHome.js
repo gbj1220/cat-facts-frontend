@@ -12,18 +12,23 @@ class AuthHome extends Component {
     isError: false,
     errorObj: false,
     friendsArray: [],
+    userData: "",
   };
 
   findAllFriends = () => {
-    return this.state.friendsArray.map((data) => {
-      return (
-        <ul>
-          <li className='list-group-item'>
-            {data.firstName} {data.lastName}
-          </li>
-        </ul>
-      );
-    });
+    try {
+      return this.state.friendsArray.map((data) => {
+        return (
+          <ul>
+            <li className='list-group-item'>
+              {data.firstName} {data.lastName} {data.mobileNumber}
+            </li>
+          </ul>
+        );
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   componentDidMount = async () => {
@@ -53,50 +58,53 @@ class AuthHome extends Component {
     }
   };
 
-  handleSendToFriend = async (req, res) => {
-    try {
-      const jwtToken = localStorage.getItem("jwtToken");
-      const payload = await axios.get(
-        "http://localhost:3001/friends/get-friends-list",
-        payload,
-        {
-          header: {
-            authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      if (payload) {
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
+  sendUserCatFact = () => {
+    const getAllNumbers = this.state.friendsArray.map(
+      (item) => item.mobileNumber
+    );
+    console.log(getAllNumbers);
   };
 
   render() {
     return (
       <div className='main-container'>
-        <img
-          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fsp9VjRjvV7s%2Fmaxresdefault.jpg&f=1&nofb=1'
-          className='img-fluid'
-          id='img-fluid'
-          alt='...'
-        ></img>
         {this.state.isLoading ? (
           <div style={{ textAlign: "center", fontSize: "2em" }}>...Loading</div>
         ) : (
           <div>
+            <div
+              style={{
+                fontSize: "9em",
+                display: "flex",
+                justifyContent: "space-between",
+                fontFamily: "fantasy",
+              }}
+            >
+              <span style={{ color: "red" }}>C</span>
+              <span style={{ color: "orange" }}>A</span>
+              <span style={{ color: "yellow" }}>T</span>
+              <span style={{ color: "blue" }}>F</span>
+              <span style={{ color: "indigo" }}>A</span>
+              <span style={{ color: "violet" }}>C</span>
+              <span style={{ color: "red" }}>T</span>
+              <span style={{ color: "orange" }}>S</span>
+            </div>
             <div className='row' id='friends-row'>
-              <div className='col-lg-4' id='idk'>
+              <div className='col-lg-4' id='displayed-names'>
                 <h2>Active Friends List</h2>
                 <ul>{this.findAllFriends()}</ul>
               </div>
             </div>
-            <button className='btn btn-outline-primary' id='send-fact-btn'>
-              Send Daily Fact!
-            </button>
           </div>
         )}
+        <button
+          onClick={this.sendUserCatFact}
+          className='btn btn-outline-primary'
+          id='send-fact-btn'
+        >
+          Send <br />
+          Fact
+        </button>
       </div>
     );
   }
