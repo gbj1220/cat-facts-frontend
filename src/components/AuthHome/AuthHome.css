@@ -17,13 +17,6 @@
   margin-top: 20px;
 }
 
-.main-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  background-color: #6ff5ff;
-}
-
 .input-form {
   border-radius: 7%;
 }
@@ -34,15 +27,14 @@
 }
 
 h2 {
-  margin-top: 100px;
-  margin-bottom: 50px;
-  margin-left: 60px;
   text-align: center;
   border-style: solid;
   border-color: black;
   color: black;
   background-color: white;
   font-family: Impact;
+  width: 300px;
+  margin-left: 120px;
 }
 
 .list-group-item {
@@ -51,11 +43,13 @@ h2 {
   border-style: solid;
   border-color: black;
   border-width: 2px;
+  width: 400px;
+  margin-left: 500px;
 }
 
 .list-group-item {
   border-radius: 10%;
-  margin: 10px;
+  margin: 5px;
   background-color: white;
   color: black;
   font-weight: bold;
@@ -66,23 +60,27 @@ h2 {
   border-radius: 50%;
   height: 250px;
   width: 250px;
-  margin-left: 500px;
-  margin-top: -250px;
   background-color: red;
   font-family: Impact;
   font-size: 2em;
+  margin-left: 1500px;
+  margin-top: -800px;
 }
 
 #displayed-names {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-right: 300px;
+  width: 400px;
+  margin-left: 700px;
 }
 
 #friends-row {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+
+#delete-btn {
+  margin-bottom: 120px;
 }
 
 @media (min-width: 768px) {
