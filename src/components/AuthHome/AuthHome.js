@@ -10,9 +10,8 @@ class AuthHome extends Component {
     email: "",
     mobileNumber: null,
     isLoading: false,
-    isError: false,
-    errorObj: false,
     friendsArray: [],
+    catFact: "",
   };
 
   findAllFriends = () => {
@@ -58,25 +57,38 @@ class AuthHome extends Component {
     }
   };
 
+  // getCatFact = async (req, res) => {
+  //   try {
+  //     const catFact = await axios.get(
+  //       "https://cat-fact.herokuapp.com/facts/random"
+  //     );
+  //     const oneCatFact = catFact.data.text;
+  //     res.json(oneCatFact);
+
+  //     this.setState({
+  //       catFact: oneCatFact,
+  //     });
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
+
   sendUserCatFact = async () => {
+    // const { catFact } = this.state.catFact;
+    // console.log(catFact);
+
+    const allMobileNumbers = this.state.friendsArray.map(
+      (item) => item.mobileNumber
+    );
+
+    const textInfo = {
+      allMobileNumbers,
+      // catFact,
+    };
+
+    const jwtToken = localStorage.getItem("jwtToken");
+
     try {
-      const getCatFact = await axios.get(
-        "https://cat-fact.herokuapp.com/facts/random"
-      );
-
-      const catFact = getCatFact.data.text;
-
-      const allMobileNumbers = this.state.friendsArray.map(
-        (item) => item.mobileNumber
-      );
-
-      const textInfo = {
-        allMobileNumbers,
-        catFact,
-      };
-
-      const jwtToken = localStorage.getItem("jwtToken");
-
       const payload = await axios.post(
         "http://localhost:3001/users/send-sms",
         textInfo,
