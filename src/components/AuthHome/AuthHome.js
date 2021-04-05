@@ -8,11 +8,11 @@ class AuthHome extends Component {
     firstName: "",
     lastName: "",
     email: "",
+    mobileNumber: null,
     isLoading: false,
     isError: false,
     errorObj: false,
     friendsArray: [],
-    userData: "",
   };
 
   findAllFriends = () => {
@@ -58,24 +58,41 @@ class AuthHome extends Component {
     }
   };
 
-  sendUserCatFact = () => {
-    const getAllNumbers = this.state.friendsArray.map(
-      (item) => item.mobileNumber
-    );
-
-    this.setState({});
-  };
-
-  getCatFact = async (req, res) => {
+  sendUserCatFact = async () => {
     try {
-      const catFact = await axios.get(
+      const getCatFact = await axios.get(
         "https://cat-fact.herokuapp.com/facts/random"
       );
-      const oneCatFact = catFact.data.text;
-      console.log(oneCatFact);
+
+      const catFact = getCatFact.data.text;
+
+      const allMobileNumbers = this.state.friendsArray.map(
+        (item) => item.mobileNumber
+      );
+
+      const textInfo = {
+        allMobileNumbers,
+        catFact,
+      };
+
+      const jwtToken = localStorage.getItem("jwtToken");
+
+      const payload = await axios.post(
+        "http://localhost:3001/users/send-sms",
+        textInfo,
+
+        {
+          headers: {
+            authorization: `Bearer ${jwtToken}`,
+          },
+        }
+      );
+      return payload;
     } catch (e) {
       console.log(e.message);
     }
+
+    // console.log(allMobileNumbers);
   };
 
   render() {
@@ -111,7 +128,8 @@ class AuthHome extends Component {
           </div>
         )}
         <button
-          onClick={this.getCatFact}
+          onClick={this.sendUserCatFact}
+          // onClick={this.getCatFact}
           className='btn btn-outline-primary'
           id='send-fact-btn'
         >
