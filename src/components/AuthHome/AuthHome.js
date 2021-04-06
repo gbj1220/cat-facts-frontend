@@ -11,17 +11,38 @@ class AuthHome extends Component {
     mobileNumber: null,
     isLoading: false,
     friendsArray: [],
-    catFact: "",
   };
 
   findAllFriends = () => {
     try {
-      return this.state.friendsArray.map((data) => {
+      return this.state.friendsArray.map((data, index) => {
         return (
-          <ul>
-            <li className='list-group-item'>
-              {data.firstName} {data.lastName}
-            </li>
+          <ul key={index}>
+            <div>
+              <li className='list-group-item'>
+                {data.firstName} {data.lastName}
+                <div className='form-check'>
+                  <button
+                    className='btn btn-danger'
+                    id='delete-btn'
+                    onClick={this.deleteUserById.bind(data.key)}
+                  >
+                    Delete
+                  </button>
+                  <label
+                    className='form-check-label'
+                    htmlFor='flexCheckDefault'
+                  ></label>
+                  <button
+                    onClick={this.sendUserCatFact}
+                    className='btn btn-outline-primary'
+                    id='send-fact-btn'
+                  >
+                    Send Fact
+                  </button>
+                </div>
+              </li>
+            </div>
           </ul>
         );
       });
@@ -72,7 +93,8 @@ class AuthHome extends Component {
     }
   };
 
-  sendUserCatFact = async () => {
+  sendUserCatFact = async (event) => {
+    event.preventDefault();
     const allMobileNumbers = this.state.friendsArray.map(
       (item) => item.mobileNumber
     );
@@ -107,7 +129,35 @@ class AuthHome extends Component {
     }
   };
 
-  deleteUserById = () => {};
+  deleteUserById = async (id) => {
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    try {
+      const deletedFriend = await axios.delete(
+        `http://localhost:3001/friends/delete-friend/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+          data: {
+            deletedFriend: deletedFriend,
+          },
+        }
+      );
+
+      const findNonDeletedPeople = this.state.friendsArray.filter((item) => {
+        if (item !== deletedFriend) {
+          return item;
+        }
+
+        this.setState({
+          friendsArray: findNonDeletedPeople,
+        });
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
   render() {
     return (
@@ -139,22 +189,11 @@ class AuthHome extends Component {
 
               <div className='row-lg-4' id='displayed-names'>
                 <h2>Active Friends List</h2>
-                <ul>
-                  {this.findAllFriends()}
-                  <button className='btn btn-danger' id='delete-btn'>
-                    Delete
-                  </button>
-                </ul>
+                <div>
+                  <ul>{this.findAllFriends()}</ul>
+                </div>
               </div>
             </div>
-            <button
-              onClick={this.sendUserCatFact}
-              className='btn btn-outline-primary'
-              id='send-fact-btn'
-            >
-              Send <br />
-              Fact
-            </button>
           </div>
         )}
       </div>
