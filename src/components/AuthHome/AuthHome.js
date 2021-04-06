@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import decoder from "jwt-decode";
 
 import "./AuthHome.css";
 
@@ -16,16 +17,17 @@ class AuthHome extends Component {
   findAllFriends = () => {
     try {
       return this.state.friendsArray.map((data, index) => {
+        console.log(data);
         return (
-          <ul key={index}>
-            <div>
+          <div>
+            <ul key={index}>
               <li className='list-group-item'>
                 {data.firstName} {data.lastName}
                 <div className='form-check'>
                   <button
                     className='btn btn-danger'
                     id='delete-btn'
-                    onClick={this.deleteUserById.bind(data.key)}
+                    onClick={() => this.deleteUserById(data._id)}
                   >
                     Delete
                   </button>
@@ -34,7 +36,7 @@ class AuthHome extends Component {
                     htmlFor='flexCheckDefault'
                   ></label>
                   <button
-                    onClick={this.sendUserCatFact}
+                    onClick={() => this.sendUserCatFact(data)}
                     className='btn btn-outline-primary'
                     id='send-fact-btn'
                   >
@@ -42,8 +44,8 @@ class AuthHome extends Component {
                   </button>
                 </div>
               </li>
-            </div>
-          </ul>
+            </ul>
+          </div>
         );
       });
     } catch (e) {
@@ -93,12 +95,7 @@ class AuthHome extends Component {
     }
   };
 
-  sendUserCatFact = async (event) => {
-    event.preventDefault();
-    const allMobileNumbers = this.state.friendsArray.map(
-      (item) => item.mobileNumber
-    );
-
+  sendUserCatFact = async (friendsInfo) => {
     const catFact = await axios.get(
       "https://cat-fact.herokuapp.com/facts/random"
     );
@@ -106,10 +103,10 @@ class AuthHome extends Component {
     const oneCatFact = catFact.data.text;
 
     const textInfo = {
-      allMobileNumbers,
+      friendsInfo,
       oneCatFact,
     };
-
+    console.log(oneCatFact);
     const jwtToken = localStorage.getItem("jwtToken");
 
     try {
@@ -129,9 +126,15 @@ class AuthHome extends Component {
     }
   };
 
+  clearWindow = () => {
+    window.location.reload();
+  };
+
   deleteUserById = async (id) => {
     const jwtToken = localStorage.getItem("jwtToken");
+    const decodedToken = decoder(jwtToken);
 
+    console.log(decodedToken);
     try {
       const deletedFriend = await axios.delete(
         `http://localhost:3001/friends/delete-friend/${id}`,
@@ -140,7 +143,7 @@ class AuthHome extends Component {
             Authorization: `Bearer ${jwtToken}`,
           },
           data: {
-            deletedFriend: deletedFriend,
+            email: decodedToken.email,
           },
         }
       );
@@ -154,6 +157,8 @@ class AuthHome extends Component {
           friendsArray: findNonDeletedPeople,
         });
       });
+
+      this.clearWindow();
     } catch (e) {
       console.log(e.message);
     }
