@@ -8,6 +8,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AddFriend from "./components/AddFriend/AddFriend";
+import HowToUse from "./components/HowToUse/HowToUse";
 
 const MainRouter = (props) => {
   return (
@@ -16,6 +17,7 @@ const MainRouter = (props) => {
       <Switch>
         <PrivateRoute exact path='/add-friend' component={AddFriend} />
         <PrivateRoute exact path='/auth-home' component={AuthHome} />
+        <PrivateRoute exact path='/how-to-use' component={HowToUse} />
         <Route
           exact
           path='/login'

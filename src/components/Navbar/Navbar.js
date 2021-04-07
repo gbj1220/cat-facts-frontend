@@ -16,7 +16,7 @@ function Navbar(props) {
             to='/auth-home'
             style={{ fontFamily: "cursive", fontWeight: "bold" }}
           >
-            CAT FACTS
+            😺 CAT FACTS
           </NavLink>
           <button
             className='navbar-toggler'
@@ -44,7 +44,7 @@ function Navbar(props) {
 
                   <NavLink
                     className='nav-link active'
-                    to='auth-home'
+                    to='how-to-use'
                     style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
                     How To Use
@@ -74,6 +74,7 @@ function Navbar(props) {
             <>
               <NavLink
                 className='btn btn-outline-primary'
+                id='sign-up-btn'
                 activeStyle={{ color: "yellow" }}
                 to='/sign-up'
               >

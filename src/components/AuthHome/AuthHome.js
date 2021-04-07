@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import decoder from "jwt-decode";
+import { toast } from "react-toastify";
 
 import "./AuthHome.css";
 
@@ -17,9 +18,8 @@ class AuthHome extends Component {
   findAllFriends = () => {
     try {
       return this.state.friendsArray.map((data, index) => {
-        console.log(data);
         return (
-          <div>
+          <div key={index}>
             <ul key={index}>
               <li className='list-group-item'>
                 {data.firstName} {data.lastName}
@@ -50,6 +50,15 @@ class AuthHome extends Component {
       });
     } catch (e) {
       console.log(e.message);
+      toast.error(e.response.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -77,21 +86,15 @@ class AuthHome extends Component {
       this.findAllFriends();
     } catch (e) {
       console.log(e.message);
-    }
-  };
-
-  getCatFact = async () => {
-    try {
-      const catFact = await axios.get(
-        "https://cat-fact.herokuapp.com/facts/random"
-      );
-      const oneCatFact = catFact.data.text;
-
-      this.setState({
-        catFact: oneCatFact,
+      toast.error(e.response.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
-    } catch (e) {
-      console.log(e.message);
     }
   };
 
@@ -191,7 +194,6 @@ class AuthHome extends Component {
                 <span style={{ color: "red" }}>T</span>
                 <span style={{ color: "orange" }}>S</span>
               </div>
-
               <div className='row-lg-4' id='displayed-names'>
                 <h2>Active Friends List</h2>
                 <div>

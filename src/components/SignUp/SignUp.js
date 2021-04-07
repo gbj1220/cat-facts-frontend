@@ -70,7 +70,7 @@ class SignUp extends Component {
     const eMessage = Object.values(this.state.errObj);
     return eMessage.map((message, index) => {
       <div key={index} className='alert alert-danger'>
-        {eMessage}
+        {message}
       </div>;
     });
   };
@@ -119,15 +119,19 @@ class SignUp extends Component {
         progress: undefined,
       });
     } catch (e) {
-      toast.error(e.response.data, {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(
+        "Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, and at least 1 special symbol.",
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+      console.log("testing");
     }
   };
 
@@ -226,7 +230,6 @@ class SignUp extends Component {
               >
                 Sign Up
               </button>
-              <p className='mt-5 mb-3 text-muted'>© 2017–2021</p>
             </form>
           </main>
         </div>

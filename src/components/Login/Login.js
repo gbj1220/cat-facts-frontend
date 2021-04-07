@@ -1,7 +1,6 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import React, { Component } from "react";
-import { toast } from "react-toastify";
 import { checkIfLoggedIn } from "../lib/HelperFunctions";
 
 import "./Login.css";
@@ -46,15 +45,6 @@ class Login extends Component {
       this.props.history.push("/auth-home");
     } catch (e) {
       console.log(e);
-      toast.error(e.response.data, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
     }
   };
 
@@ -63,8 +53,28 @@ class Login extends Component {
 
     return (
       <div style={{ marginTop: "400px" }}>
-        <main className='form-signin'>
-          <form onSubmit={this.handleSubmit}>
+        <div
+          style={{
+            fontSize: "10em",
+            display: "flex",
+            justifyContent: "space-around",
+            fontFamily: "fantasy",
+            width: "1700px",
+            marginLeft: "500px",
+            marginTop: "-200px",
+          }}
+        >
+          <span style={{ color: "red" }}>C</span>
+          <span style={{ color: "orange" }}>A</span>
+          <span style={{ color: "yellow" }}>T</span>
+          <span style={{ color: "blue" }}>F</span>
+          <span style={{ color: "indigo" }}>A</span>
+          <span style={{ color: "violet" }}>C</span>
+          <span style={{ color: "red" }}>T</span>
+          <span style={{ color: "orange" }}>S</span>
+        </div>
+        <main className='form-signIn'>
+          <form onSubmit={this.handleSubmit} id='login-form'>
             <h1 className='h3 mb-3 fw-normal'>Please Login</h1>
 
             <label htmlFor='inputEmail' className='visually-hidden'>
