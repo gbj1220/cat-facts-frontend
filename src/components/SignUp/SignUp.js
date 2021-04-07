@@ -146,6 +146,27 @@ class SignUp extends Component {
     } = this.state;
     return (
       <div>
+        <div
+          style={{
+            fontSize: "10em",
+            display: "flex",
+            justifyContent: "space-around",
+            fontFamily: "fantasy",
+            width: "1700px",
+            marginLeft: "500px",
+            marginTop: "200px",
+            marginBottom: "-100px",
+          }}
+        >
+          <span style={{ color: "red" }}>C</span>
+          <span style={{ color: "orange" }}>A</span>
+          <span style={{ color: "yellow" }}>T</span>
+          <span style={{ color: "blue" }}>F</span>
+          <span style={{ color: "indigo" }}>A</span>
+          <span style={{ color: "violet" }}>C</span>
+          <span style={{ color: "red" }}>T</span>
+          <span style={{ color: "orange" }}>S</span>
+        </div>
         <div className='main-container'>
           <main className='form-signin'>
             {isError && this.showErrorMessage()}

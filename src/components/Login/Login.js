@@ -62,6 +62,7 @@ class Login extends Component {
             width: "1700px",
             marginLeft: "500px",
             marginTop: "-200px",
+            marginBottom: "120px",
           }}
         >
           <span style={{ color: "red" }}>C</span>
